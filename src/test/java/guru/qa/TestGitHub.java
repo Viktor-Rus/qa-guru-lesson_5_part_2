@@ -15,7 +15,14 @@ public class TestGitHub {
         $("nav").$(byText("Pricing")).hover();
         $(withText("Compare plans")).click();
         $("h1").shouldHave(text("Choose the plan that’s right for you."));
+    }
 
+    @Test
+    void testActions(){
+        open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").dragAndDropTo($("#column-b"));
+        $x("//div[@class='column'][1]").shouldHave(text("B"));
+        $x("//div[@class='column'][2]").shouldHave(text("A"));
 
 
     }
